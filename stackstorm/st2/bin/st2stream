@@ -1,0 +1,7 @@
+#!/opt/stackstorm/st2/bin/python
+
+import sys
+from st2stream import cmd
+
+if __name__ == '__main__':
+    sys.exit(cmd.api.main())

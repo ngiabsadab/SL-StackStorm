@@ -1,0 +1,10 @@
+#!/opt/stackstorm/st2/bin/python
+# PBR Generated from u'console_scripts'
+
+import sys
+
+from logshipper.cmd import ship_file
+
+
+if __name__ == "__main__":
+    sys.exit(ship_file())

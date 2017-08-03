@@ -1,0 +1,20 @@
+---
+    name: "rule_run_python"
+    pack: "examples"
+    description: "Sample rule dumping webhook payload to run script python."
+    enabled: true
+
+    trigger:
+        type: "core.st2.webhook"
+        parameters:
+            url: "sample"
+
+    criteria:
+        trigger.body.action:
+            pattern: "runpython"
+            type: "equals"
+
+    action:
+        ref: "core.local"
+        parameters:
+            cmd: "python /opt/hello.py"

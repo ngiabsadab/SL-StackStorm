@@ -1,0 +1,20 @@
+---
+    name: "webhook_create_dashboard"
+    pack: "examples"
+    description: "Rule post webhook payload create dashboard."
+    enabled: true
+
+    trigger:
+        type: "core.st2.webhook"
+        parameters:
+            url: "sample"
+
+    criteria:
+        trigger.body.name:
+            pattern: "create"
+            type: "equals"
+
+    action:
+        ref: "core.local"
+        parameters:
+            cmd: "node /opt/post_create_dashboard.js"

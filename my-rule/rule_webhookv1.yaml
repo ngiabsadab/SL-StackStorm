@@ -1,0 +1,20 @@
+---
+    name: "rule_echohello_webhook"
+    pack: "examples"
+    description: "Sample rule dumping webhook payload to a file."
+    enabled: true
+
+    trigger:
+        type: "core.st2.webhook"
+        parameters:
+            url: "sample"
+
+    criteria:
+        trigger.body.name:
+            pattern: "st2"
+            type: "equals"
+
+    action:
+        ref: "core.local"
+        parameters:
+            cmd: "echo \"{{Hello Webhook!}}\" >> ~/opt/hello"
